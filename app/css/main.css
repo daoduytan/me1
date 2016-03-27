@@ -1260,11 +1260,7 @@ input:focus, textarea:focus {
   opacity: 0;
 }
 
-.blogPage a.back_home {
-	position: absolute;
-	left: 60px;
-	top: 60px;
-}
+
 .w-blog {
 	max-width: 500px;
 	padding-right: 15px;
@@ -1275,6 +1271,13 @@ input:focus, textarea:focus {
 
 .w-blog .top  {
 	overflow: hidden;
+  position: absolute;
+}
+
+.blogPage a.back_home {
+  position: absolute;
+  right: 15px;
+  top: 60px;
 }
 
 .w-blog .top h2 {
