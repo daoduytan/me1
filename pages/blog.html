@@ -1,0 +1,17 @@
+<div  ng-controller="blogCtrl">
+	<a ng-click="hideBlog()" class="back_home">Home</a>
+	<div class="w-blog">
+		<div class="top">
+			<h2>BLog</h2>
+		</div>
+		<div class="container">
+
+			<ul class="listPost">
+				<li ng-repeat="artice in artices">
+					<h3><a href="{{artice.link}}">{{artice.name}}</a></h3>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div>

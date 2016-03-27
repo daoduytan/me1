@@ -1,23 +1,21 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>MY website</title>
+    <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="app/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="http://daoduytan.github.io/my-page/js/jquery.easing.1.3.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
 
-<div class="home">
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="app/js/app.js"></script>
+<script src="app/js/controller.js"></script>
 
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+    
+  </head>
+  <body ng-app="myPage">
+      <div ng-view></div>
+  </body>
+</html>
