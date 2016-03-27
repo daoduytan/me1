@@ -95,7 +95,14 @@
                 </div>
             </div>
             <div class="group-works grid">
-                <a class="work " rel="1" href="1" style="background-image: url(app/images/works/14-thum.jpg)" class="article-thumb">
+
+                <a ng-repeat="work in works">
+                    <div class="inner-work">
+                        <h3 class="name">{{work.name}}</h3>
+                    </div>
+                </a>
+
+               <!--  <a class="work " rel="1" href="1" style="background-image: url(app/images/works/14-thum.jpg)" class="article-thumb">
                     <div class="inner-work">
                         <h3 class="name">ALN</h3>
                     </div>
@@ -134,7 +141,7 @@
                     <div class="inner-work">
                         <h3 class="name">TotallyGuitars E-gift Card</h3>
                     </div>
-                </a>
+                </a> -->
             </div>
         </section>
         <!-- /section works-->

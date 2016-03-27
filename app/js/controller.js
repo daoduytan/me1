@@ -289,6 +289,16 @@ app.controller('homeCtrl', ['$scope', function($scope) {
     	$scope.blogLoad =  true;
     }
 
+    $scope.works = [
+
+        {
+            name: 'Work 1',
+            img: 'work1-thum.jpg',
+            id: '1'
+        }
+
+    ]
+
 }]);
 
 
