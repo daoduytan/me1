@@ -983,7 +983,7 @@ input:focus, textarea:focus {
   width: 25%;
   float: left; }
 
-.group-works a:after {
+.group-works .work:after {
   content: "";
   display: block;
   padding-bottom: 70%; }
@@ -1002,7 +1002,7 @@ input:focus, textarea:focus {
   justify-content: center;
   text-align: center; }
 
-.group-works a:hover .inner-work {
+.group-works .work:hover .inner-work {
   -webkit-animation: animation 1000ms linear both;
   animation: animation 1000ms linear both; }
 

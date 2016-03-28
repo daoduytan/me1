@@ -1,4 +1,4 @@
-app.controller('homeCtrl', ['$scope', function($scope) {
+app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
 
     (function($, root, undefined) {
 
@@ -6,13 +6,13 @@ app.controller('homeCtrl', ['$scope', function($scope) {
 
             'use strict';
 
-            // DOM ready, take it away
+            // DOM ready, take it away     
 
             var $body = $('html, body'),
                 $btnNav = $('.btn-nav'),
                 $this = $(this),
                 $gridItem = $('.work');
-
+            
 
             function skill() {
                 var $skill = $('.skill-bar');
@@ -22,29 +22,6 @@ app.controller('homeCtrl', ['$scope', function($scope) {
                     $(this).append('<div class="bar"/>');
                     $(this).find('.number').text($number).css('left', $number);
                     $(this).children('.bar').css('width', $number);
-                });
-            }
-
-            function articleTada() {
-                var randNum = Math.floor(Math.random() * $('.article-thumb').length);
-                $('.article-thumb').eq(randNum).addClass('is-animate')
-                    .siblings().removeClass('is-animate');
-            }
-
-            function smoothScroll(duration, easing) {
-                $('a[href^="#"]').on('click', function(event) {
-
-                    var target = $($(this).attr('href'));
-
-                    if (target.length) {
-                        event.preventDefault();
-                        $('html, body').animate({
-                            scrollTop: target.offset().top
-                        }, {
-                            duration: duration,
-                            easing: easing
-                        });
-                    }
                 });
             }
 
@@ -91,6 +68,31 @@ app.controller('homeCtrl', ['$scope', function($scope) {
                 });
             }
 
+            function articleTada() {
+                var randNum = Math.floor(Math.random() * $('.article-thumb').length);
+                $('.article-thumb').eq(randNum).addClass('is-animate')
+                    .siblings().removeClass('is-animate');
+            }
+
+            function smoothScroll(duration, easing) {
+                $('a[href^="#"]').on('click', function(event) {
+
+                    var target = $($(this).attr('href'));
+
+                    if (target.length) {
+                        event.preventDefault();
+                        $('html, body').animate({
+                            scrollTop: target.offset().top
+                        }, {
+                            duration: duration,
+                            easing: easing
+                        });
+                    }
+                });
+            }
+
+            
+
             function clickBtn() {
                 var element, circle, d, x, y;
                 $(".btn span").hover(function(e) {
@@ -125,8 +127,9 @@ app.controller('homeCtrl', ['$scope', function($scope) {
             smoothScroll(500, 'easeOutCirc');
             // $body.niceScroll();
             work();
-            clickBtn();
             close_work();
+            clickBtn();
+            
 
             $('.btn-nav').click(function() {
 
@@ -161,23 +164,6 @@ app.controller('homeCtrl', ['$scope', function($scope) {
         function closemenu() {
             $('.btn-nav').removeClass('open');
             $('body').removeClass('active');
-        }
-
-
-        $(window).scroll(function() {
-            startArticles();
-        });
-
-        function startArticles() {
-            var wScroll = $(window).scrollTop();
-
-            if ($('#blog').offset().top - 200 < wScroll) {
-                $('.article-thumb').each(function(i) {
-                    setTimeout(function() {
-                        $('.article-thumb').eq(i).addClass('is-visible');
-                    }, 100 * i);
-                });
-            }
         }
 
 
@@ -283,34 +269,117 @@ app.controller('homeCtrl', ['$scope', function($scope) {
 
     $scope.loadBlog =  function() {
     	$scope.blogLoad =  false;
+
+         $('html, body').animate({
+            scrollTop: 0
+        }, 500, 'easeOutCirc')
     }	
 
     $scope.hideBlog =  function() {
     	$scope.blogLoad =  true;
     }
 
-    $scope.works = [
+
+    $rootScope.artices = [
+        {
+            name: 'Coding landing page music',
+            link: '',
+            background: 'boardgame.jpg'
+        },
 
         {
-            name: 'Work 1',
-            img: 'work1-thum.jpg',
-            id: '1'
+            name: 'Loading icon wifth SVG',
+            link: '',
+            background: 'contact-form.png'
+        },
+
+        {
+            name: 'Creat form validate',
+            link: '',
+            background: 'open.png'
+        },
+
+        {
+            name: 'Music player',
+            link: 'a',
+            background: 'oplus.jpg'
+        },
+
+        {
+            name: 'Animation css',
+            link: '',
+            background: 'perfecto.jpg'
+        },
+
+        {
+            name: 'Loading icon wifth SVG',
+            link: '',
+            background: 'small_1x.png'
+        },
+
+        {
+            name: 'Creat form validate',
+            link: '',
+            background: 'steak_exploration.jpg'
+        },
+
+        {
+            name: 'Music player',
+            link: 'a',
+            background: 'taglor_landing.png'
+        },
+        {
+            name: 'Coding landing page music',
+            link: '',
+            background: 'tasky02.png'
+        },
+
+        {
+            name: 'Loading icon wifth SVG',
+            link: '',
+            background: 'untitled.png'
+        },
+
+        {
+            name: 'Creat form validate',
+            link: '',
+            background: '347b758bc1203b916f04e40d83963e72.jpg'
+        },
+
+        {
+            name: 'Music player',
+            link: 'a',
+            background: '2b5d28e2b10d8f5b9e1be5d08df495ee.jpg'
         }
-
     ]
-
+    
 }]);
 
 
 app.controller('blogCtrl', ['$scope', function($scope){
-	$scope.artices = [
-		{
-			name: 'Coding landing page music',
-			link: 'http://google.com'
-		},
-		{
-			name: 'Loading icon wifth SVG',
-			link: 'a'
-		}
-	]
+    $('body').bind(function() {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000);
+    })
 }]);
+
+
+app.controller('postCtrl', ['$scope', function($scope){
+    
+    function startArticles() {
+        var wScroll = $(window).scrollTop();
+
+        if ($('#blog').offset().top - 200 < wScroll) {
+            $('.article-thumb').each(function(i) {
+                setTimeout(function() {
+                    $('.article-thumb').eq(i).addClass('is-visible');
+                }, 100 * i);
+            });
+        }
+    }
+
+    $(window).scroll(function() {
+        startArticles();
+    });
+}])
