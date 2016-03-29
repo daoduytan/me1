@@ -10,8 +10,8 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
 
             var $body = $('html, body'),
                 $btnNav = $('.btn-nav'),
-                $this = $(this),
-                $gridItem = $('.work');
+                $this = $(this);
+               
             
 
             function skill() {
@@ -25,35 +25,35 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
                 });
             }
 
-            function work() {
-                var workHeight = $('.works').offset().top;
-                $gridItem.each(function() {
-                    var spinner = "<div class='loader'></div>";
-                    $(this).on('click', function(event) {
-                        event.preventDefault();
-                        /* Act on the event */
-                        var nameWork = $(this).attr('href');
-                        // console.log(nameWork);
-                        $('.detail-work')
-                            // .css('display', 'block')
-                            .css('height', 'inherit')
-                            .children('.inner-detail-work')
-                            .addClass('visible')
-                            .html(spinner)
-                            .load('works/' + nameWork + '.html');
-                        // $(this).parents('.works').prepend('<div class="detail-work"/>');
+            // function work() {
+            //     var workHeight = $('.works').offset().top;
+            //     $gridItem.each(function() {
+            //         var spinner = "<div class='loader'></div>";
+            //         $(this).on('click', function(event) {
+            //             event.preventDefault();
+            //             /* Act on the event */
+            //             var nameWork = $(this).attr('href');
+            //             // console.log(nameWork);
+            //             $('.detail-work')
+            //                 // .css('display', 'block')
+            //                 .css('height', 'inherit')
+            //                 .children('.inner-detail-work')
+            //                 .addClass('visible')
+            //                 .html(spinner)
+            //                 .load('works/' + nameWork + '.html');
+            //             // $(this).parents('.works').prepend('<div class="detail-work"/>');
 
 
 
-                        $('html, body').animate({
-                            scrollTop: workHeight
-                        }, 1000);
+            //             $('html, body').animate({
+            //                 scrollTop: workHeight
+            //             }, 1000);
 
-                        $('.gray').css('display', 'block');
+            //             $('.gray').css('display', 'block');
 
-                    });
-                });
-            }
+            //         });
+            //     });
+            // }
 
             function close_work() {
                 $('.gray, .close-work').click(function() {
@@ -126,7 +126,7 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
             skill();
             smoothScroll(500, 'easeOutCirc');
             // $body.niceScroll();
-            work();
+            // work();
             close_work();
             clickBtn();
             
@@ -353,23 +353,78 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
         }
     ]
 
-    $scope.works =  [
+   $scope.works =  [
 
         {
-            name: 'work 1',
-            id: '1'
+            name: 'The life pill',
+            id: 'life-for-life',
+            img: 'life-for-life-thum.jpg'
+        },
+
+        {
+            name: 'Pay-it-forward Global',
+            id: 'payitforward',
+            img: 'payitforward-thum.jpg'
+        },
+        {
+            name: 'ALN',
+            id: 'aln',
+            img: 'aln-thum.jpg'
+        },
+        {
+            name: 'Care Ultima',
+            id: 'careultima',
+            img: 'careultima-thum.jpg'
+        },
+        {
+            name: 'Website consulting',
+            id: 'website-consulting',
+            img: '21-thum.jpg'
+        },
+        {
+            name: 'Steele &#038; Ungar',
+            id: 'steelesungar',
+            img: 'steelesungar-thum.jpg'
+        },
+        {
+            name: 'Krcmic',
+            id: 'krcmic',
+            img: 'krcmic-thum.jpg'
+        },
+        {
+            name: 'TotallyGuitars E-gift Card',
+            id: 'guitar',
+            img: 'guitar-thum.jpg'
         }
+
 
     ]
 
     $scope.showW = function() {
-        // var naml = this.getAttribute('ral');
-        console.log(id = this.work.id);
+        var nameWork = this.work.id;
+        function work() {
+            var workHeight = $('.works').offset().top,
+                $gridItem = $('.work'),
+                spinner = "<div class='loader'></div>";
+            /* Act on the event */
+            $('.detail-work')
+                // .css('display', 'block')
+                .css('height', 'inherit')
+                .children('.inner-detail-work')
+                .addClass('visible')
+                .html(spinner)
+                .load('works/' + nameWork + '.html');
+            // $(this).parents('.works').prepend('<div class="detail-work"/>');
+
+            $('html, body').animate({
+                scrollTop: workHeight
+            }, 1000);
+
+            $('.gray').css('display', 'block');
+        }
+
+        work();
     }
-
-
-
-    
 }]);
 
 

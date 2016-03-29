@@ -97,18 +97,13 @@
             </div>
             <div class="group-works grid">
 
-                <a ng-repeat="work in works" class="work " rel="{{work.id}}" ng-click="showW()" style="background-image: url(app/images/works/aln-thum.jpg)" class="article-thumb">
+               
+               <a ng-repeat="work in works" class="work" rel="{{work.id}}" ng-click="showW()" style="background-image: url(app/images/works/{{work.img}})" class="article-thumb">
                     <div class="inner-work">
                         <h3 class="name">ALN</h3>
                     </div>
                 </a>
-                
-               <!-- <a class="work " rel="1" href="1" style="background-image: url(app/images/works/aln-thum.jpg)" class="article-thumb">
-                    <div class="inner-work">
-                        <h3 class="name">ALN</h3>
-                    </div>
-                </a>
-                <a class="work " rel="97" href="97" style="background-image: url(app/images/works/life-for-life-thum.jpg)" class="article-thumb">
+                <!-- <a class="work " rel="97" href="97" style="background-image: url(app/images/works/life-for-life-thum.jpg)" class="article-thumb">
                     <div class="inner-work">
                         <h3 class="name">The life pill</h3>
                     </div>
