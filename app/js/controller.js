@@ -352,6 +352,23 @@ app.controller('homeCtrl', ['$scope', '$rootScope', function($scope, $rootScope)
             background: '2b5d28e2b10d8f5b9e1be5d08df495ee.jpg'
         }
     ]
+
+    $scope.works =  [
+
+        {
+            name: 'work 1',
+            id: '1'
+        }
+
+    ]
+
+    $scope.showW = function() {
+        // var naml = this.getAttribute('ral');
+        console.log(id = this.work.id);
+    }
+
+
+
     
 }]);
 
